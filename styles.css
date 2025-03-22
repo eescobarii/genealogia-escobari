@@ -1,131 +1,28 @@
-/* Estilo base para el árbol genealógico */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f4f8;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100vh;
-}
-
-header {
-    background-color: #333;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    font-size: 36px;
-    margin: 0;
-}
-
-#zoom-controls {
-    display: flex;
-    justify-content: center;
-    margin: 20px;
-}
-
-#zoom-slider {
-    width: 80%;
-    max-width: 300px;
-}
-
 #tree-container {
-    display: flex;
-    justify-content: center;
-    padding: 40px;
-    margin-top: 20px;
-    position: relative;
-    overflow: auto;
-    transform-origin: center;
-    transition: transform 0.3s ease;
+  width: 100%;
+  height: 100vh;
+  position: relative;
 }
 
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    font-size: 14px;
+.node {
+  width: 150px;
+  height: 50px;
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.jstree-node {
-    padding: 20px;
-    margin: 15px;
-    border-radius: 8px;
-    background-color: #4caf50;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    max-width: 120px;
-    text-align: center;
-    position: relative;
-    border: 2px solid #333;
-    margin-top: 10px;
+.line {
+  stroke: black;
+  stroke-width: 2;
 }
 
-.jstree-node img {
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    margin-bottom: 10px;
-}
-
-.jstree-node:hover {
-    background-color: #388e3c;
-    transform: scale(1.1);
-}
-
-.jstree-themeicon {
-    display: none;
-}
-
-/* Modal */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-    padding-top: 60px;
-}
-
-.modal-content {
-    background-color: white;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 500px;
-    text-align: center;
-}
-
-#close {
-    color: #aaa;
-    font-size: 28px;
-    font-weight: bold;
-    position: absolute;
-    top: 10px;
-    right: 25px;
-}
-
-#close:hover,
-#close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+#info-container {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
 }
