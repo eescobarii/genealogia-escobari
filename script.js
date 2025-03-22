@@ -3,7 +3,7 @@ $(document).ready(function() {
         {
             "id": "juan",
             "name": "Juan Pérez",
-            "photo": "fotos/Isaac2.png",
+//            "photo": "fotos/Isaac2.png",
             "info": "Juan nació el 1 de enero de 1950. Es ingeniero.",
             "children": [
                 {
@@ -15,7 +15,7 @@ $(document).ready(function() {
                 {
                     "id": "lucia",
                     "name": "Lucía Pérez",
-                    "photo": "fotos/lucia.jpg",
+//                    "photo": "fotos/lucia.jpg",
                     "info": "Lucía nació el 5 de mayo de 1985. Es profesora."
                 }
             ]
@@ -23,13 +23,13 @@ $(document).ready(function() {
         {
             "id": "ana",
             "name": "Ana Martínez",
-            "photo": "fotos/ana.jpg",
+ //           "photo": "fotos/ana.jpg",
             "info": "Ana nació el 10 de febrero de 1955. Es doctora.",
             "children": [
                 {
                     "id": "maria",
                     "name": "María Martínez",
-                    "photo": "fotos/maria.jpg",
+//                    "photo": "fotos/maria.jpg",
                     "info": "María nació el 22 de noviembre de 1985. Es abogada."
                 }
             ]
