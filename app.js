@@ -45,14 +45,17 @@ function createFamilyTree(data) {
 
     treeLayout(root);
 
-    // Draw lines connecting nodes
+    // Draw straight lines connecting nodes
     svg.selectAll(".link")
         .data(root.links())
-        .enter().append("path")
+        .enter().append("line")  // Use line instead of path
         .attr("class", "link")
-        .attr("d", d3.linkHorizontal()
-            .x(d => d.x + margin.left)
-            .y(d => d.y + margin.top));
+        .attr("x1", d => d.source.x + margin.left)  // Start X
+        .attr("y1", d => d.source.y + margin.top)  // Start Y
+        .attr("x2", d => d.target.x + margin.left) // End X
+        .attr("y2", d => d.target.y + margin.top) // End Y
+        .attr("stroke", "black")
+        .attr("stroke-width", 2);
 
     // Create nodes for each person
     const nodes = svg.selectAll(".node")
