@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Árbol Genealógico Interactivo</title>
+    <title>Interactive Family Tree</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="tree-container">
-        <!-- Aquí se generará el árbol genealógico -->
-    </div>
-    
-    <!-- Contenedor de información adicional -->
+
+    <!-- The container for the tree -->
+    <div id="tree-container"></div>
+
+    <!-- The modal to show information when a node is clicked -->
     <div id="info-container">
-        <!-- Aquí aparecerá la información cuando se haga clic en un nodo -->
-        <button id="close-btn">Cerrar</button>
+        <div id="info-content"></div>
+        <button id="close-btn">Close</button>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="app.js"></script>
+
 </body>
 </html>
