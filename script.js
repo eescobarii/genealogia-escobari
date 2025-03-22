@@ -3,7 +3,7 @@ $(document).ready(function() {
         {
             "id": "juan",
             "name": "Juan Pérez",
-            "photo": "fotos/juan.jpg",
+            "photo": "fotos/Isaac2.png",
             "info": "Juan nació el 1 de enero de 1950. Es ingeniero.",
             "children": [
                 {
