@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Árbol Genealógico Interactivo</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.12/jstree.min.js"></script>
+    <!-- Incluir jsPlumb desde CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/jsplumb@2.15.0/dist/js/jsplumb.min.js"></script>
 </head>
 <body>
     <header>
@@ -18,11 +18,11 @@
         <input type="range" id="zoom-slider" min="50" max="150" value="100" step="10">
     </div>
 
-    <div id="tree-container" class="zoomable-container">
+    <div id="tree-container">
         <!-- Árbol genealógico -->
     </div>
 
-    <!-- Ventana modal para mostrar información adicional -->
+    <!-- Modal para mostrar detalles de una persona -->
     <div id="modal" class="modal">
         <div class="modal-content">
             <span id="close">&times;</span>
