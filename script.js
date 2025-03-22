@@ -22,6 +22,22 @@ $(document).ready(function() {
                     }
                 }
             ]
+        },
+        {
+            "text": "Ana Martínez",
+            "icon": "fotos/ana.jpg",
+            "data": {
+                "info": "Ana nació el 10 de febrero de 1955. Es doctora."
+            },
+            "children": [
+                {
+                    "text": "María Martínez",
+                    "icon": "fotos/maria.jpg",
+                    "data": {
+                        "info": "María nació el 22 de noviembre de 1985. Es abogada."
+                    }
+                }
+            ]
         }
     ];
 
