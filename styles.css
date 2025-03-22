@@ -1,4 +1,4 @@
-/* styles.css */
+/* Estilo base para el árbol genealógico */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f0f4f8;
@@ -39,9 +39,10 @@ h1 {
     justify-content: center;
     padding: 40px;
     margin-top: 20px;
-    overflow: hidden;
-    transition: transform 0.3s ease;
+    position: relative;
+    overflow: auto;
     transform-origin: center;
+    transition: transform 0.3s ease;
 }
 
 footer {
@@ -64,16 +65,13 @@ footer {
     font-weight: bold;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
     display: flex;
     flex-direction: column;
     max-width: 120px;
     text-align: center;
     position: relative;
     border: 2px solid #333;
-    background-color: #4caf50;
-    padding: 10px;
-    border-radius: 6px;
+    margin-top: 10px;
 }
 
 .jstree-node img {
@@ -92,6 +90,7 @@ footer {
     display: none;
 }
 
+/* Modal */
 .modal {
     display: none;
     position: fixed;
@@ -129,14 +128,4 @@ footer {
     color: black;
     text-decoration: none;
     cursor: pointer;
-}
-
-.zoomable-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.jstree-connector {
-    border: 1px solid black;
 }
