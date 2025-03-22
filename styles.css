@@ -1,7 +1,7 @@
 /* styles.css */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8;
     margin: 0;
     padding: 0;
 }
@@ -9,18 +9,51 @@ body {
 header {
     background-color: #333;
     color: white;
-    padding: 10px;
+    padding: 20px 0;
     text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 36px;
+    margin: 0;
 }
 
 #tree-container {
     display: flex;
     justify-content: center;
+    padding: 40px;
     margin-top: 20px;
 }
 
 footer {
+    background-color: #333;
+    color: white;
     text-align: center;
-    margin-top: 30px;
-    font-size: 0.9em;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+}
+
+#tree-container .jstree-node {
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 8px;
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#tree-container .jstree-node:hover {
+    background-color: #388e3c;
+    transform: scale(1.05);
+}
+
+.jstree-themeicon {
+    display: none; /* Ocultar los iconos predeterminados */
 }
