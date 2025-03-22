@@ -81,8 +81,16 @@ function createFamilyTree(data) {
         const personInfo = `<h3>${d.data.name}</h3>
                             <p>Fecha de nacimiento: ${d.data.birthdate}</p>`;
         document.getElementById("info-container").innerHTML = personInfo;
+
+        // Mostrar el contenedor de información
         document.getElementById("info-container").style.display = "block";
+    });
+    
+    // Cerrar el modal de información cuando se haga clic en el botón
+    document.getElementById("close-btn").addEventListener("click", function() {
+        document.getElementById("info-container").style.display = "none";
     });
 }
 
+// Crear el árbol genealógico
 createFamilyTree(data);
