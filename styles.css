@@ -55,7 +55,7 @@ footer {
     font-size: 14px;
 }
 
-#tree-container .jstree-node {
+.jstree-node {
     padding: 20px;
     margin: 15px;
     border-radius: 8px;
@@ -64,23 +64,28 @@ footer {
     font-weight: bold;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease;
     display: flex;
-    align-items: center;
     flex-direction: column;
     max-width: 120px;
+    text-align: center;
+    position: relative;
+    border: 2px solid #333;
+    background-color: #4caf50;
+    padding: 10px;
+    border-radius: 6px;
 }
 
-#tree-container .jstree-node:hover {
-    background-color: #388e3c;
-    transform: scale(1.1);
-}
-
-#tree-container .jstree-node img {
+.jstree-node img {
     border-radius: 50%;
     width: 60px;
     height: 60px;
     margin-bottom: 10px;
+}
+
+.jstree-node:hover {
+    background-color: #388e3c;
+    transform: scale(1.1);
 }
 
 .jstree-themeicon {
@@ -124,4 +129,14 @@ footer {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+.zoomable-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.jstree-connector {
+    border: 1px solid black;
 }
