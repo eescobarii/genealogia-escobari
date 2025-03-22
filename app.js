@@ -1,3 +1,4 @@
+// Sample data for the family tree
 const data = {
     "name": "Juan Pérez",
     "birthdate": "1950-01-01",
@@ -29,9 +30,10 @@ const data = {
     ]
 };
 
+// Function to create the tree
 function createFamilyTree(data) {
-    const width = 1200; // Aumentamos el ancho para que los nodos no se superpongan
-    const height = 600; // Aumentamos la altura
+    const width = 1000;
+    const height = 600;
     const margin = { top: 40, right: 40, bottom: 40, left: 40 };
 
     const svg = d3.select("#tree-container").append("svg")
@@ -43,7 +45,7 @@ function createFamilyTree(data) {
 
     treeLayout(root);
 
-    // Dibuja las líneas de conexión entre los nodos (enlaces)
+    // Draw lines connecting nodes
     svg.selectAll(".link")
         .data(root.links())
         .enter().append("path")
@@ -52,14 +54,14 @@ function createFamilyTree(data) {
             .x(d => d.x + margin.left)
             .y(d => d.y + margin.top));
 
-    // Dibuja los nodos (personas)
+    // Create nodes for each person
     const nodes = svg.selectAll(".node")
         .data(root.descendants())
         .enter().append("g")
         .attr("class", "node")
         .attr("transform", d => `translate(${d.x + margin.left}, ${d.y + margin.top})`);
 
-    // Cuadros de los nodos
+    // Create rectangles for nodes
     nodes.append("rect")
         .attr("width", 150)
         .attr("height", 50)
@@ -67,7 +69,7 @@ function createFamilyTree(data) {
         .attr("ry", 5)
         .attr("fill", "#4CAF50");
 
-    // Nombres dentro de los nodos
+    // Add names inside the nodes
     nodes.append("text")
         .attr("x", 75)
         .attr("y", 25)
@@ -76,21 +78,21 @@ function createFamilyTree(data) {
         .attr("fill", "white")
         .text(d => d.data.name);
 
-    // Mostrar información de la persona al hacer clic
+    // Make the tree interactive: click on a node to show more info
     nodes.on("click", function(event, d) {
-        const personInfo = `<h3>${d.data.name}</h3>
-                            <p>Fecha de nacimiento: ${d.data.birthdate}</p>`;
-        document.getElementById("info-container").innerHTML = personInfo;
-
-        // Mostrar el contenedor de información
+        const personInfo = `
+            <h3>${d.data.name}</h3>
+            <p>Fecha de nacimiento: ${d.data.birthdate}</p>
+        `;
+        document.getElementById("info-content").innerHTML = personInfo;
         document.getElementById("info-container").style.display = "block";
     });
-    
-    // Cerrar el modal de información cuando se haga clic en el botón
+
+    // Close the modal when the close button is clicked
     document.getElementById("close-btn").addEventListener("click", function() {
         document.getElementById("info-container").style.display = "none";
     });
 }
 
-// Crear el árbol genealógico
+// Call the function to create the family tree
 createFamilyTree(data);
