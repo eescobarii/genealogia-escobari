@@ -21,10 +21,11 @@ $(document).ready(function() {
         }
     ];
 
-    // Iniciar el árbol genealógico con jsTree
+    // Crear el árbol genealógico interactivo
     $('#tree-container').jstree({
         'core': {
             'data': familyTree
-        }
+        },
+        'plugins': ['wholerow']
     });
 });
