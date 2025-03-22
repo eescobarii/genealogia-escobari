@@ -1,4 +1,4 @@
-// Sample data for the family tree
+// Datos de ejemplo con múltiples parejas
 const data = {
     "name": "Juan Pérez",
     "birthdate": "1950-01-01",
@@ -30,8 +30,7 @@ const data = {
     ]
 };
 
-
-// Function to create the tree
+// Función para crear el árbol genealógico
 function createFamilyTree(data) {
     const width = 1000;
     const height = 600;
@@ -39,33 +38,47 @@ function createFamilyTree(data) {
 
     const svg = d3.select("#tree-container").append("svg")
         .attr("width", width)
-        .attr("height", height);
+        .attr("height", height)
+        .call(d3.zoom().scaleExtent([0.5, 3]).on("zoom", zoom)) // Agregar zoom
+        .append("g"); // Añadir un grupo para aplicar el zoom
 
-    const root = d3.hierarchy(data, d => d.children);
+    const root = d3.hierarchy(data, d => {
+        let children = [];
+        // Procesamos todas las parejas, cada una con sus propios hijos
+        d.parejas.forEach(pareja => {
+            children = children.concat(pareja.children.map(child => ({
+                name: child.name,
+                birthdate: child.birthdate,
+                parent: d.name
+            })));
+        });
+        return children;
+    });
+
     const treeLayout = d3.tree().size([width - margin.left - margin.right, height - margin.top - margin.bottom]);
 
     treeLayout(root);
 
-    // Draw straight lines connecting nodes
+    // Dibujar líneas de conexión rectas entre nodos
     svg.selectAll(".link")
         .data(root.links())
-        .enter().append("line")  // Use line instead of path
+        .enter().append("line")
         .attr("class", "link")
-        .attr("x1", d => d.source.x + margin.left)  // Start X
-        .attr("y1", d => d.source.y + margin.top)  // Start Y
-        .attr("x2", d => d.target.x + margin.left) // End X
-        .attr("y2", d => d.target.y + margin.top) // End Y
+        .attr("x1", d => d.source.x + margin.left)
+        .attr("y1", d => d.source.y + margin.top)
+        .attr("x2", d => d.target.x + margin.left)
+        .attr("y2", d => d.target.y + margin.top)
         .attr("stroke", "black")
         .attr("stroke-width", 2);
 
-    // Create nodes for each person
+    // Crear nodos
     const nodes = svg.selectAll(".node")
         .data(root.descendants())
         .enter().append("g")
         .attr("class", "node")
         .attr("transform", d => `translate(${d.x + margin.left}, ${d.y + margin.top})`);
 
-    // Create rectangles for nodes
+    // Dibujar rectángulos para los nodos
     nodes.append("rect")
         .attr("width", 150)
         .attr("height", 50)
@@ -73,7 +86,7 @@ function createFamilyTree(data) {
         .attr("ry", 5)
         .attr("fill", "#4CAF50");
 
-    // Add names inside the nodes
+    // Añadir texto con el nombre
     nodes.append("text")
         .attr("x", 75)
         .attr("y", 25)
@@ -82,7 +95,7 @@ function createFamilyTree(data) {
         .attr("fill", "white")
         .text(d => d.data.name);
 
-    // Make the tree interactive: click on a node to show more info
+    // Hacer el árbol interactivo: clic para mostrar más información
     nodes.on("click", function(event, d) {
         const personInfo = `
             <h3>${d.data.name}</h3>
@@ -92,11 +105,16 @@ function createFamilyTree(data) {
         document.getElementById("info-container").style.display = "block";
     });
 
-    // Close the modal when the close button is clicked
+    // Cerrar el modal cuando se hace clic en el botón de cerrar
     document.getElementById("close-btn").addEventListener("click", function() {
         document.getElementById("info-container").style.display = "none";
     });
+
+    // Función de zoom para desplazar y hacer zoom en el árbol
+    function zoom(event) {
+        svg.attr("transform", event.transform);
+    }
 }
 
-// Call the function to create the family tree
+// Llamar a la función para crear el árbol genealógico
 createFamilyTree(data);
