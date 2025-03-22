@@ -2,33 +2,34 @@
 const data = {
     "name": "Juan Pérez",
     "birthdate": "1950-01-01",
-    "children": [
+    "parejas": [
         {
-            "name": "Carlos Pérez",
-            "birthdate": "1980-05-10",
+            "name": "Ana López",
+            "birthdate": "1955-02-25",
             "children": [
                 {
-                    "name": "Luis Pérez",
-                    "birthdate": "2005-07-20"
+                    "name": "Carlos Pérez",
+                    "birthdate": "1980-05-10"
                 },
                 {
-                    "name": "Ana Pérez",
-                    "birthdate": "2007-11-11"
+                    "name": "Luisa Pérez",
+                    "birthdate": "1985-03-22"
                 }
             ]
         },
         {
-            "name": "Luisa Pérez",
-            "birthdate": "1985-03-22",
+            "name": "María García",
+            "birthdate": "1960-07-15",
             "children": [
                 {
                     "name": "Pedro Pérez",
-                    "birthdate": "2010-06-15"
+                    "birthdate": "1990-06-05"
                 }
             ]
         }
     ]
 };
+
 
 // Function to create the tree
 function createFamilyTree(data) {
